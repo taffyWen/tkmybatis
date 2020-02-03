@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/wen?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&nullCatalogMeansCurrent=true
+    username: root
+    password: 5210
+    driver-class-name: com.mysql.cj.jdbc.Driver
+logging:
+  config: classpath:logback.xml
