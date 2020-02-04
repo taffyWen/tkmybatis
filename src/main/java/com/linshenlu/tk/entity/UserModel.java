@@ -14,5 +14,8 @@ public class UserModel {
     private String userName;
     @Column
     private String userPhone;
-
+    @Column
+    private String salary;
+    @Column
+    private String age;
 }

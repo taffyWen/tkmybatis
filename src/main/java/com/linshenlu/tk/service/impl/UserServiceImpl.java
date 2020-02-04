@@ -106,7 +106,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserModel> implements UserS
 
     @Override
     public List<UserModel> selectByExample(Object o) {
-        return null;
+        return userMapper.selectByExample(o);
     }
 
     @Override
