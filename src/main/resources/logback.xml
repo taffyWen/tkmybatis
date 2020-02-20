@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="true">
         <!-- 项目名称 -->
-        <property name="PROJECT_NAME" value="bq_interface" />
+        <property name="PROJECT_NAME" value="tkmybatis" />
 
 
         <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->

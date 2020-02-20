@@ -8,14 +8,14 @@ import javax.persistence.*;
 @Table(name="user")
 public class UserModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "JDBC")
+    @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "JDBC") // 新增数据后，可以直接返回主键，数据库支持主键自增
     private Integer id;
     @Column
     private String userName;
     @Column
     private String userPhone;
     @Column
-    private String salary;
+    private Double salary;
     @Column
-    private String age;
+    private Integer age;
 }
