@@ -38,12 +38,17 @@ public class UserController {
     @RequestMapping("/selectByExample")
     public List selectByExample(){
         Example example = new Example(UserModel.class);
+        //排序
+        example.orderBy("salary").orderBy("age").asc();
+
         Example.Criteria criteria1 = example.createCriteria();
         Example.Criteria criteria2 = example.createCriteria();
         criteria1.andGreaterThan("salary",2000);
         criteria1.andLessThan("age",20);
         criteria2.andLessThan("salary",6000);
         criteria2.andGreaterThan("age",20);
+
+        //不同条件关联
         example.or(criteria2);
 
         List<UserModel> userModels = userService.selectByExample(example);

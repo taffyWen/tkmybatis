@@ -3,10 +3,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.5.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
     <groupId>com.linshenlu</groupId>
     <artifactId>tkmybatis</artifactId>
     <version>1.0-SNAPSHOT</version>
 <dependencies>
+    <!--  默认已经由jdbc组件-->
     <dependency>
         <groupId>tk.mybatis</groupId>
         <artifactId>mapper-spring-boot-starter</artifactId>
@@ -35,22 +43,21 @@
         <version>8.0.16</version>
     </dependency>
     <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid</artifactId>
+        <version>1.0.31</version>
+    </dependency>
+    <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
         <version>2.0.3.RELEASE</version>
     </dependency>
 
     <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-beans</artifactId>
-        <version>5.0.5.RELEASE</version>
-        <scope>compile</scope>
-    </dependency>
-<!--    <dependency>
         <groupId>log4j</groupId>
         <artifactId>log4j</artifactId>
         <version>1.2.17</version>
-    </dependency>-->
+    </dependency>
     <!-- 添加slf4j日志api -->
     <dependency>
         <groupId>org.slf4j</groupId>
@@ -71,6 +78,17 @@
         <version>1.1.7</version>
     </dependency>
 
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-configuration-processor</artifactId>
+        <version>2.2.1.RELEASE</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <version>2.0.0.RELEASE</version>
+    </dependency>
 
 </dependencies>
 

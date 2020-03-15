@@ -1,45 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+configuration 的属性
+   scan: 当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。
+   scanPeriod: 设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。
+        当scan为true时，此属性生效。默认的时间间隔为1分钟。scanPeriod="60 seconds"
+   debug: 当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false
+-->
 <configuration debug="true">
-        <!-- 项目名称 -->
-        <property name="PROJECT_NAME" value="tkmybatis" />
+    <!-- 用来设置上下文名称，每个logger都关联到logger上下文，默认上下文名称为default。但可以使用<contextName>设置成其他名字，用于区分不同应用程序的记录。一旦设置，不能修改。-->
+    <!--没看懂影响的地方，除了日志多出  Setting logger context name as [tk-mybatis]-->
+    <contextName>${PROJECT_NAME}</contextName>
+    <!-- 项目名称 -->
+    <property name="PROJECT_NAME" value="tkmybatis" />
 
 
-        <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
-        <property name="LOG_HOME" value="E:/logs" />
+    <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
+    <property name="LOG_HOME" value="G:/logs" />
 
 
-        <!-- 控制台输出 -->
-        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-            <!--<withJansi>true</withJansi>-->
-            <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-                <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
-                <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %highlight([%-5level] %logger{50} - %msg%n)</pattern>
-                <charset>UTF-8</charset>
-                <!--             <charset>GBK</charset> -->
-            </encoder>
-        </appender>
+    <!-- 控制台输出 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!--<withJansi>true</withJansi>-->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %highlight([%-5level] %logger{50} - %msg%n)</pattern>
+            <charset>UTF-8</charset>
+            <!-- <charset>GBK</charset> -->
+        </encoder>
+    </appender>
 
 
-        <!-- 按照每天生成日志文件 -->
-        <appender name="SYSTEM_FILE"  class="ch.qos.logback.core.rolling.RollingFileAppender">
-            <!-- 过滤器，只打印ERROR级别的日志 -->
-            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-                <!--日志文件输出的文件名-->
-                <FileNamePattern>${LOG_HOME}/${PROJECT_NAME}.system-dev.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
-                <!--日志文件保留天数-->
-                <MaxHistory>15</MaxHistory>
-                <!--日志文件最大的大小-->
-                <MaxFileSize>10MB</MaxFileSize>
-            </rollingPolicy>
+    <!-- 按照每天生成日志文件 -->
+    <appender name="SYSTEM_FILE"  class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 过滤器，只打印ERROR级别的日志 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>${LOG_HOME}/${PROJECT_NAME}.system-dev.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+            <!--日志文件保留天数-->
+            <MaxHistory>15</MaxHistory>
+            <!--日志文件最大的大小-->
+            <MaxFileSize>10MB</MaxFileSize>
+        </rollingPolicy>
 
 
-            <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-                <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
-                <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] %logger{50} - %msg%n</pattern>
-                <charset>UTF-8</charset>
-            </encoder>
-        </appender>
-            <logger name="system_error" additivity="true">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] %logger{50} - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    <logger name="system_error" additivity="true">
         <appender-ref ref="SYSTEM_FILE"/>
     </logger>
 
@@ -85,7 +95,7 @@
             <logger name="java.sql.PreparedStatement" level="DEBUG" />
             <logger name="com.ruidou.baoqian.mapper" level="DEBUG" />
             <!-- 开发环境下的日志配置 -->
-            <root level="INFO,DEBUG">
+    <root level="INFO,DEBUG">
         <appender-ref ref="CONSOLE" />
         <appender-ref ref="SYSTEM_FILE" />
     </root>
