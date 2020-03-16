@@ -1,11 +1,13 @@
 package com.linshenlu.tk.dao;
 
-import com.linshenlu.tk.base.BaseTkMaper;
+import com.linshenlu.tk.base.BaseTkMapper;
 import com.linshenlu.tk.entity.UserModel;
 import org.apache.ibatis.annotations.Mapper;
 import tk.mybatis.spring.annotation.MapperScan;
 
-@MapperScan
+/**
+ * @author wen
+ */
 @Mapper
-public interface UserTkMaper extends BaseTkMaper<UserModel> {
+public interface UserTkMapper extends BaseTkMapper<UserModel> {
 }

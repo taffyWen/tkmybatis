@@ -1,6 +1,7 @@
 package com.linshenlu.tk.service.impl;
 
-import com.linshenlu.tk.dao.UserTkMaper;
+import com.linshenlu.tk.base.BaseTkMapper;
+import com.linshenlu.tk.dao.UserTkMapper;
 import com.linshenlu.tk.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,28 +10,18 @@ import com.linshenlu.tk.entity.UserModel;
 
 import java.util.List;
 
+/**
+ * @author wen
+ */
 @Service
-public class UserServiceImpl extends BaseServiceImpl<UserModel> implements UserService {
+public class UserServiceImpl extends BaseServiceImpl<UserModel,Integer> implements UserService {
 
     @Autowired
-    private UserTkMaper userMapper;
+    private UserTkMapper userMapper;
 
     @Override
-    public List<UserModel> selectAll() {
-        return userMapper.selectAll();
+    public BaseTkMapper<UserModel> getMapper() {
+        return userMapper;
     }
-
-
-    @Override
-    public UserModel selectOne(UserModel userModel) {
-        return userMapper.selectOne(userModel);
-    }
-
-
-    @Override
-    public List<UserModel> selectByExample(Object o) {
-        return userMapper.selectByExample(o);
-    }
-
 
 }
