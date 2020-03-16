@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ApplicationTests {
+public class TkApplicationTests {
 
     @Autowired
     DataSource dataSource;

@@ -30,6 +30,7 @@ configuration 的属性
     </appender>
 
 
+
     <!-- 按照每天生成日志文件 -->
     <appender name="SYSTEM_FILE"  class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- 过滤器，只打印ERROR级别的日志 -->

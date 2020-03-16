@@ -6,5 +6,5 @@ package com.linshenlu.tk.base;
  * 其实可以不继承 BaseMapper ， 只需要写几个常用的抽象方法即可
  * @param <T>
  */
-public interface BaseService<T> extends BaseMapper<T> {
+public interface BaseService<T> extends BaseTkMaper<T> {
 }

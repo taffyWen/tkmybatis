@@ -1,10 +1,10 @@
 package com.linshenlu.tk.service.impl;
 
+import com.linshenlu.tk.dao.UserTkMaper;
 import com.linshenlu.tk.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.linshenlu.tk.base.BaseServiceImpl;
-import com.linshenlu.tk.dao.UserMapper;
 import com.linshenlu.tk.entity.UserModel;
 
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
 public class UserServiceImpl extends BaseServiceImpl<UserModel> implements UserService {
 
     @Autowired
-    private UserMapper userMapper;
+    private UserTkMaper userMapper;
 
     @Override
     public List<UserModel> selectAll() {
