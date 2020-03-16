@@ -1,5 +1,6 @@
 package com.linshenlu.tk.base;
 
+import org.apache.ibatis.annotations.Mapper;
 import tk.mybatis.mapper.common.ConditionMapper;
 import tk.mybatis.mapper.common.ExampleMapper;
 import tk.mybatis.mapper.common.IdsMapper;

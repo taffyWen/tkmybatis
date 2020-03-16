@@ -1,6 +1,8 @@
 package com.linshenlu.tk.controller;
 
+import com.linshenlu.tk.entity.Dept;
 import com.linshenlu.tk.entity.UserModel;
+import com.linshenlu.tk.service.DeptService;
 import com.linshenlu.tk.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,20 +22,26 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private DeptService deptService;
 
 
     private final static Logger logger = LoggerFactory.getLogger(UserController.class);
+    @RequestMapping("/getAllDept")
+    public List<Dept> getAllDept(){
+        return deptService.selectAll();
+    }
     @RequestMapping("/getAll")
     public List getAllUserInfo(){
 
-        List<UserModel> userModels = userService.getAll();
+        List<UserModel> userModels = userService.selectAll();
         logger.info("getAll{}" , userModels);
         return userModels;
     }
 
     @RequestMapping("/selectOne/{id}")
     public UserModel selectOne(@PathVariable int id){
-        UserModel userModel = userService.getById(Integer.valueOf(id));
+        UserModel userModel = userService.selectByPrimaryKey(id);
         return userModel;
     }
 
@@ -53,7 +61,7 @@ public class UserController {
         //不同条件关联
         example.or(criteria2);
 
-        List<UserModel> userModels = userService.searchByExample(example);
+        List<UserModel> userModels = userService.selectByExample(example);
         return userModels;
     }
 

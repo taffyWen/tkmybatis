@@ -10,20 +10,6 @@ import java.util.List;
  * 其实可以不继承 BaseMapper ， 只需要写几个常用的抽象方法即可
  * @param <T>
  */
-public interface BaseService<T,Id> {
-    int save(T t);
+public interface BaseService<T> extends BaseTkMapper<T>{
 
-    int delete(T t);
-
-    int deleteById(Id id);
-
-    int update(T t);
-
-    T getById(Id id);
-
-    List<T> getAll();
-
-    int saveAll(List<T> list);
-
-    List<T> searchByExample(Example example);
 }

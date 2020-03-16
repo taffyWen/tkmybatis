@@ -6,5 +6,5 @@ import com.linshenlu.tk.entity.UserModel;
 /**
  * @author wen
  */
-public interface UserService extends BaseService<UserModel,Integer> {
+public interface UserService extends BaseService<UserModel> {
 }

@@ -14,14 +14,14 @@ import java.util.List;
  * @author wen
  */
 @Service
-public class UserServiceImpl extends BaseServiceImpl<UserModel,Integer> implements UserService {
+public class UserServiceImpl extends BaseServiceImpl<UserModel> implements UserService {
 
     @Autowired
     private UserTkMapper userMapper;
 
-    @Override
+    /*@Override
     public BaseTkMapper<UserModel> getMapper() {
         return userMapper;
-    }
+    }*/
 
 }
