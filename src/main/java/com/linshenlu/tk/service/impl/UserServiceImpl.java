@@ -16,8 +16,8 @@ import java.util.List;
 @Service
 public class UserServiceImpl extends BaseServiceImpl<UserModel> implements UserService {
 
-    @Autowired
-    private UserTkMapper userMapper;
+   /* @Autowired
+    private UserTkMapper userMapper;*/
 
     /*@Override
     public BaseTkMapper<UserModel> getMapper() {

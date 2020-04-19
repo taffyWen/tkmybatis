@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @author wen
  */
-public class BaseServiceImpl<T> implements  BaseService<T> {
+public class BaseServiceImpl<T> implements BaseService<T> {
 
     /**
      * 获取所需要的mapper
