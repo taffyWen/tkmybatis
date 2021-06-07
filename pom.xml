@@ -70,7 +70,7 @@
     <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-core</artifactId>
-        <version>1.1.7</version>
+        <version>1.2.0</version>
     </dependency>
     <!--它是log4j的一个改良版本，同时它完整实现了slf4j API使你可以很方便地更换成其它日志系统如log4j或JDK14 Logging-->
     <dependency>
